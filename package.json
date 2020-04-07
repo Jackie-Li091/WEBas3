@@ -1,0 +1,26 @@
+{
+  "name": "web322-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jackie-Li091/WEB322-02.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jackie-Li091/WEB322-02/issues"
+  },
+  "homepage": "https://github.com/Jackie-Li091/WEB322-02#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  }
+}

@@ -1,0 +1,35 @@
+<div class="form-page">
+    <div class="reg-img">
+        <img src="img/footer.jpg" alt="amazon" width="80">
+    </div>
+    <div>
+        <form action="/cusRegistration" method="POST">
+            <p id="form-reg">Create account</p id="form-reg">
+            <div>
+                <label class="form-label" for="r_sername">Your Name</label> <br>
+                <input type="text" id="r_username" name="username" class="form-input" value="{{this.username}}"> <br>
+                    <div class="form-err">{{this.error}}</div>
+
+                <label class="form-label" for="r_email">Email</label> <br>
+                <input type="email" id="r_email" name="email" class="form-input" value="{{this.email}}"> <br>
+                    <div class="form-err">{{this.error1}}</div>
+                <label class="form-label" for="r_password">Password</label> <br>
+                <input type="password" id="r_password" name="password" class="form-input" placeholder="At least 6 characters" value="{{this.password}}"> <br>
+                    <div class="form-err">{{this.error2}}</div>
+                <p class="form-hint">Password must conist of at least 6 characters</p>
+
+                <label class="form-label" for="rr_password">Password again</label> <br>
+                <input type="password" id="rr_password" name="passwordRE" class="form-input" value="{{this.passwordRE}}"> <br>
+                    <div class="form-err">{{this.error3}}</div>
+
+                <button type="submit" class="form-sub">Create your Amazon account</button>
+                <div class="form-hint form-mess">By creating an account, you agree to Amazon's <a href="#" class="form-link">Condition's of Use</a> and <a
+                        href="#" class="form-link">Privacy Notice</a>.</div>
+            </div>
+            <div>
+                <div class="form-bottom"></div>
+                <p class="form-hint form-connect">Already have an account? <a href="/login" class="form-link">Sign in></a></p>
+            </div>
+        </form>
+    </div>
+</div>

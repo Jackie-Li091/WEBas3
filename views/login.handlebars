@@ -1,0 +1,32 @@
+<div class="form-page">
+    <div class="reg-img">
+        <img src="img/footer.jpg" alt="amazon" width="80">
+    </div>
+    <div>
+        <form id="form-si" action="/login" method="POST">
+            <p id="form-sign">Sign-In</p>
+            <div>
+                <label class="form-label" for="l_email">Email</label> <br>
+                <input type="email" id="l_email" name="email" class="form-input" value="{{this.email}}"> <br>
+                <div class="form-err">{{this.error1}}</div>
+                <label class="form-label" for="r_password">Password</label> <br>
+                <input type="password" id="r_password" name="password" class="form-input"
+                    placeholder="At least 6 characters" value="{{this.password}}"> <br>
+                <div class="form-err">{{this.error2}}</div>
+                <p class="form-hint">Password must conist of at least 6 characters</p>
+                <p>> <a href="#" class="form-link">Need help?</a></p>
+                <button type="submit" class="form-sub">Sign in</button>
+            </div>
+
+        </form>
+
+        
+
+        <div class="form-extra">
+            <div class="label-through">
+                <p class="login-label">New to Amazon?</p>
+            </div>
+            <a href="/cusRegistration" class="login-redirect">Create your Amazon account</a>
+        </div>
+    </div>
+</div>

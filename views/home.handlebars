@@ -1,0 +1,39 @@
+<div class="main-box">
+    <!-- Sale section-->
+    <div id="img-contain">
+        <img id="sale-img" src="img/sale.jpg" alt="sale">
+    </div>
+    
+
+
+    <!-- Category section-->
+    <div class="cate">
+        {{#each data}}
+        <div class="cate-box">
+            <p class="cate-title">
+                {{this.cate}}
+            </p>
+
+            <img src="{{this.img}}" alt="{{this.title}}" width="50%" height="50%"> <br>
+            <!--
+            <p><a class="cate-ex" href="/products">Explore now</a></p>
+            -->
+        </div>
+        {{/each}}
+    </div>
+
+    <!-- Best Seller section-->
+    <div id="best">
+        <p id="best-title">Best Sellers</p>
+        <div class="best-contain">
+            {{#each data1}}
+            <div class="best-box">
+                <img src="{{this.img}}" alt="{{this.title}}" width="80%" height="80%">
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+
+
+</div>

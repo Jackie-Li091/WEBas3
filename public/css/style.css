@@ -1,0 +1,548 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    height: 0;
+    background-color: #e7e7e7;
+    
+}
+
+header {
+    display: block;
+    background-color: #232f3e;
+    color: beige;
+    margin: 0 0;
+}
+
+#header-nav, #header-info {
+    display: inline-block;
+}
+
+#header-info {
+    text-align: right;
+    float: right;
+}
+
+.nav-ul-a {
+    color: white;
+    text-decoration: none;
+
+}
+
+header ul {
+    width: 700px;
+    margin: 0;
+    padding: 5px;
+}
+
+header ul li{
+    margin: 10px 10px;
+    display: inline;
+    list-style-type: none;
+    font: 1rem serif;
+}
+
+header nav p {
+    font: 1.5rem sans-serif;
+    display: inline;
+    margin: 0;
+}
+
+#header-info {
+    font: 1.5rem sans-serif;
+    margin: 0;
+}
+
+.main-box {
+    position: relative;
+}
+
+#sale-img {
+    width: 100%;
+}
+
+.cate {
+    /*display: flex;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    position: absolute;
+    top: 35%;
+    margin-left: 0.5%;
+    margin-right: 1%;
+    max-width: 100%;
+}
+.cate-box {
+    margin: 1%;
+    padding: 15px;
+    /*flex: 1;*/
+    z-index: 400;
+    position: relative;
+    background-color: white;
+}
+
+.cate-title {
+    padding-left: 5px;
+    font: 1.1em Arial;
+    margin: 5% 0;
+    font-weight: bold;
+}
+
+.cate-ex {
+    text-decoration: none;
+    color: lightblue;
+}
+
+#best {
+    margin: 7% 20px 15px 20px;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    
+    width: 90%;
+    max-width: 100%;
+}
+
+.best-contain {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow-y: visible;
+    padding: 15px;
+}
+
+.best-box {
+    line-height: 60px;
+}
+
+#best-title {
+    font: 1.1rem Arial;
+    margin: 1% 0 0 0;
+    padding-left: 18px;
+    font-weight: 100;
+}
+
+footer {
+    background-color: #232F3E;
+}
+
+#footer {
+    padding: 5px 40px 0 40px;
+    display: flex;
+}
+
+.footer-box {
+    flex: 1;
+    margin: 0 15px 10px 0;
+}
+
+h4 {
+    color: white;
+    font: 1.3rem Arial;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-text {
+    text-decoration: none;
+    color: #DDD;
+    font: 0.8rem Arial;
+    list-style-type: none;
+    padding-left: 0;
+    
+}
+
+#footer-imgs {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.footer-li {
+    margin-bottom: 7px;
+}
+
+.form-page {
+    background-color: white;
+    
+    padding-top: 5%;
+    padding-bottom: 100px;
+}
+
+.reg-img {
+    margin-top: 5px;
+    text-align: center;
+    border-top: 1px solid lightgray;
+}
+
+form {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    display: block;
+    position: relative;
+    /*left: 30%;*/
+    margin: auto;
+    width: 20%;
+    min-width: 250px;
+    height: 485px;
+    padding: 14px 18px;
+}
+
+form p {
+    margin: 0;
+}
+
+#form-reg {
+    font: 1.5rem Arial;
+    text-align: left;
+    padding: 14px 0 20px 0px;
+    font-weight: 500;
+}
+
+.form-label {
+    font: 0.9rem Arial;
+    padding-bottom: 2px;
+    font-weight: bolder;
+}
+
+.form-input {
+    margin-bottom: 8px;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    width: 98%;
+    line-height: normal;
+    height: 31px;
+    padding-left: 4px;
+}
+
+.form-hint {
+    font: 0.7rem Arial;
+    margin-bottom: 5px;
+}
+
+.form-sub {
+    width: 100%;
+    background-color: orange;
+    line-height: 22px;
+    margin-top: 9px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.form-mess {
+    margin-top: 18px;
+    margin-bottom: 27px;
+}
+
+.form-bottom {
+    margin: 0;
+    height: 2px;
+    width: 100%;
+    background: radial-gradient( grey 12%, white 80%);
+}
+
+.form-link {
+    text-decoration: none;
+    color:lightskyblue;
+    font: 0.9rem Arial;
+}
+
+.form-link :visited {
+    color: lightskyblue;
+    text-decoration: none;
+}
+
+.form-connect {
+    margin-top: 30px;
+}
+
+#form-si {
+    height: 300px;
+}
+
+#form-sign {
+    font: 2rem Arial;
+    font-weight: 100;
+    text-align: left;
+    padding: 14px 0 20px 0px;
+}
+
+.form-err {
+    font: 0.7rem Arial bolder;
+    color: red;
+
+}
+
+.login-label {
+    line-height: 1;
+    font: 12px Arial;
+    color: #a6a6a6;
+    text-align: center;
+}
+
+.login-redirect {
+    text-align: center;
+    line-height: 22px;
+    margin: auto;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #e7e9ec;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    border: 1px solid #a6a6a6;
+    padding: 4px 85px;
+    color: black;
+    text-decoration: none;
+    font: 0.5rem Arial;
+    white-space: nowrap;
+}
+.login-redirect :visited {
+    color: black;
+    text-decoration: none;
+}
+
+#productPage {
+    background-color: white;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 20px;
+}
+
+.product-title {
+    font: 28px Arial;
+    margin: 10px 10px 5px 10px;
+    padding-left: 10px;
+}
+
+.product-title-des {
+    margin: 0 30px;
+    font: 0.8rem Arial;
+    color: #a6a6a6;
+}
+
+.product {
+    display: flex;
+}
+
+.product-menu {
+    flex: 1;
+    margin-top: 0;
+    background-color: #f5f5f5;
+}
+
+.product-menu-title {
+    font: 0.9rem Arial;
+    padding-left: 15px;
+    font-weight: bolder;
+}
+
+.product-coontain {
+    flex: 5;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    padding-top: 15px;
+}
+
+.product-box {
+    /*flex: 1;
+    min-width: 330px;
+    max-width: 330px;*/
+    height: 360px;
+    border: 1px solid #e7e7e7;
+}
+
+.best-logo {
+    background-color: orange;
+    width: 20%;
+    font: 0.7rem Arial;
+    height: 15px;
+    padding: 1px 0 0 2px;
+}
+
+.not-best {
+    color: white;
+    height: 15px;
+}
+
+.product-img {
+    margin: 25px;
+}
+
+.product-titles {
+    font: 1rem Arial;
+    padding-left: 5px;
+}
+
+.product-price {
+    color: red;
+    font: 0.9rem Arial;
+    padding-left: 5px;
+}
+
+.product-cate {
+    color: gray;
+    font: 0.8rem Arial;
+    text-align: right;
+    margin-top: 0;
+}
+
+.product-part {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 990px;
+}
+
+#dashboard {
+    background-color: white;
+    margin: 0;
+    padding: 10%;
+    min-height: 100%;
+}
+
+.thanksnote {
+    font: 1rem Arial;
+}
+
+.thanksnote {
+    font: 0.8rem Arial;
+}
+
+.highlight {
+    color: aqua;
+    font: bolder;
+    padding-left: 10%;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+
+    #header-info {
+        display: none;
+    }
+
+    header ul {
+        width: 100%;
+        margin: 0;
+        padding: 5px;
+    }
+
+    .cate {
+        display: flex;
+        flex-direction: column;
+        position: initial;
+        top: 35%;
+        margin-left: 0.5%;
+        margin-right: 1%;
+        max-width: 100%;
+    }
+
+    .best-contain {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 15px;
+    }
+    
+    .product-part {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-page {
+        background-color: white;
+        padding: 2%;
+    }
+
+    .form-extra {
+        display: none;
+    }
+
+    .main-p {
+        min-height: calc(100% - (62px + 259px));
+    }
+
+    .form-sub {
+        margin-top: 3px;
+    }
+    .form-connect {
+        margin-top: 0;
+    }
+    .form-hint {
+        font: 0.6rem Arial;
+    }
+    .form-mess {
+        margin: 2px 0;
+    }
+
+    .product-box {
+        margin: 2px 2px 2px 10px;
+    }
+    .product-menu {
+        display: none;
+    }
+    .product-titles {
+        margin: 5px 0;
+    }
+    .product-img {
+        margin: 5px;
+    }
+    .product-price {
+        margin: 2px 0 1px 0;
+    }
+
+    #footer {
+        padding: 7px;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+    header ul {
+        width: 100%;
+        margin: 0;
+        padding: 5px;
+    }  
+    
+    .cate {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: initial;
+        top: 35%;
+        margin-left: 2%;
+        margin-right: 2%;
+        max-width: 100%;
+    }
+
+    #img-contain {
+        text-align: center;
+        background-color: #ECD8DA;
+    }
+    #img-contain #sale-img {
+        width: 60%;
+        vertical-align: middle;
+    }
+
+    #best {
+        margin: 4% 20px 15px 20px;
+        background-color: white;
+        display: inline-block;
+        position: relative;
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .product-part {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .main-p {
+        min-height: calc(100% - (62px + 220px));
+    }
+}
+
+

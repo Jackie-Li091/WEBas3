@@ -1,0 +1,36 @@
+<div id="productPage">
+    <p class="product-title">All Product</p>
+    <p class="product-title-des">showing all product</p>
+    <div class="product">
+        <div class="product-menu">
+            <p class="product-menu-title">All product</p>
+        </div>
+        <div class="product-coontain">
+            <div class="product-part">
+                {{#each data}}
+                    <div class="product-box">
+                    {{#if this.best}}
+                    <div class="best-logo">Best Seller</div>
+                    {{else}}
+                    <div class="not-best">#</div>
+                    {{/if}}
+                    <div class="product-img">
+                        <img src="{{this.img}}" alt="{{this.title}}" width="60%" height="60%">
+                    </div>
+                    
+                    <p class="product-titles">
+                        {{this.title}}
+                    </p>
+                    <p class="product-price">
+                        CDN: $ {{this.price}}
+                    </p>
+                    <p class="product-cate">
+                        Category: {{this.cate}}
+                    </p>
+
+                    </div>
+                {{/each}}
+            </div>
+            
+        </div>
+    </div>
