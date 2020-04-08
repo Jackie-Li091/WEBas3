@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const model = require("../model/product");
+//const model = require("../model/product");
+const userModel = require("../model/User");
+const path = require("path");
 
 
 router.get("/cusRegistration",(req,res)=>{
@@ -47,10 +49,13 @@ router.post("/cusRegistration",(req,res)=>{
         msgRE.push("You need to enter the password again")
     if(req.body.passwordRE != check)
         msgRE.push("Should enter the same Password.");
-
+    userModel.findOne({email: req.body.email})
+    .then(()=>{
+        msgEM.push("This email has alreadly been registered");
+    })
 
     if(msgRE.length > 0 || msgPW.length > 0 || msgEM > 0 || msgFN > 0){
-        res.render("cusRegistration",{
+        res.render("User/cusRegistration",{
             title : "Registration",
             error : msgFN,
             error1 : msgEM,
@@ -62,33 +67,45 @@ router.post("/cusRegistration",(req,res)=>{
             passwordRE : req.body.passwordRE
         });
     }else{
-        const {username,email} = req.body;
-        const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
-            //your personal key
-    const msg = {
-      to: `${email}`,
-      from: `jackienleee@gmail.com`,
-      subject: 'Welcome to our family',
-      html: 
-      `
-      Hi, ${username} <br>
-      Thank you for register our website, and be part of our family<br>
-      You have success register with the email address: ${email} <br>
-      If it is not your work, please contact us.
-      `,
-    };
+        const newUser = {
+            username : req.body.username,
+            email : req.body.email,
+            password : req.body.password
+        }
+        const user = new userModel(newUser);
+        user.save()
+        .then(()=>{
 
-    sgMail.send(msg)
-    .then(()=>{
-        res.redirect("dashboard");
-    })
-    .catch(err=>{
-        console.log(`Error ${err}`);
-    })
-        
+            const sgMail = require('@sendgrid/mail');
+            sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+                //your personal key
+            const msg = {
+            to: `${newUser.email}`,
+            from: `jackienleee@gmail.com`,
+            subject: 'Welcome to our family',
+            html: 
+            `
+            Hi, ${newUser.username} <br>
+            Thank you for register our website, and be part of our family<br>
+            You have success register with the email address: ${newUser.email} <br>
+            If it is not your work, please contact us.
+            `,
+            };
+
+            sgMail.send(msg)
+            .then(()=>{
+                res.redirect("dashboard");
+            })
+            .catch(err=>{
+                console.log(`Error ${err}`);
+            })
+        })
+        .catch(err=>console.log(`Error during inserting: ${err}`));
+    
     }
 }); 
+
+
 
 router.post("/login",(req,res)=>{
 

@@ -1,8 +1,10 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
-const model = require("./model/product");
+//const model = require("./model/product");
 const bodyParser = require('body-parser');
 require('dotenv').config({path:"./config/keys.env"});
+const mongoose = require('mongoose');
+
 
 const app = express();
 
@@ -24,7 +26,11 @@ app.use("/",(req,res)=>{
 });
 
 
-
+mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(()=>{
+    console.log(`Connect to MonoDB Database`)
+})
+.catch(err=>console.log(`Error connecting`))
 
 
 const PORT = process.env.PORT;
