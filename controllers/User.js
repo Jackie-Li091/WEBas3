@@ -5,6 +5,7 @@ const userModel = require("../model/User");
 //const path = require("path");
 const isAuthenticated = require("../middleware/normalAuth");
 const dashboardLoader = require("../middleware/authorization");
+const bcrypt = require("bcryptjs");
 
 
 router.get("/cusRegistration",(req,res)=>{
@@ -128,7 +129,41 @@ router.post("/login",(req,res)=>{
             password : req.body.password
         });
     }else{
-        res.redirect("../");
+        userModel.findOne({email: req.body.email})
+        .then(user=>{
+
+            if(user==null){
+                message1.push("Sorry, error enter email and or password");
+                res.render("User/login",{
+                    title : "login in",
+                    error1 : message1,
+                    error2 : message2,
+                    email : req.body.email,
+                    password : req.body.password
+                });
+            }else{
+                bcrypt.compare(req.body.password, user.password)
+                .then(isMatched=>{
+                    if(isMatched){
+                        req.session.userInfo = user;
+                        res.redirect("/user/profile");
+                        
+                        
+                    }else{
+                        message1.push("Sorry, Error email and/or password");
+                        res.render("User/login",{
+                            title : "login in",
+                            error1 : message1,
+                            error2 : message2,
+                            email : req.body.email,
+                            password : req.body.password
+                        });
+                    }
+                })
+                .catch(err=>console.log(`Err when compile the account`));
+            }
+        })
+        .catch(err=>console.log(`Error to found the account: ${err}`));
     }
 })
 

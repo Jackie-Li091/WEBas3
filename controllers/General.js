@@ -56,4 +56,29 @@ router.get("/products",(req,res)=>{
     
 });
 
+router.get("/products/:cate",(req,res)=>{
+    productModel.find({cate:req.params.cate})
+    .then((products)=>{
+    
+        const filtered = products.map(product=>{
+            return{
+                id : product._id,
+                cate : product.cate,
+                title : product.title,
+                description : product.description,
+                price : product.price,
+                quantity : product.quantity,
+                bestSeller : product.bestSeller,
+                productImg : product.productImg
+            }
+        }); 
+
+        res.render("General/products",{
+            title : "Product",
+            data : filtered
+        });
+    })
+    .catch(err=>console.log(`Error when get the cate data at productPage`));
+})
+
 module.exports = router;

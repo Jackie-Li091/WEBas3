@@ -1,6 +1,6 @@
 <div>
-
-    <form method="POST" action="/task/search">
+<!--
+    <form method="POST" action="/product/search">
         <label class="form-label" for="a_cate">Category</label>
         <select name="cate" id="a_cate">
             <option value="laptop">Laptop</option>
@@ -12,7 +12,7 @@
 
         <input type="submit" value="Search">
     </form> <br><br>
-
+-->
     <table border="1" style="text-align: center;">
         <thead>
             <th>Category</th>
@@ -45,11 +45,11 @@
                     <span>{{this.bestSeller}}</span>
                 </td>
                 <td>
-                    <img src="/img/{{this.pruductImg}}">
+                    <img src="/img/{{this.productImg}}" width="40">
                 </td>
                 <td>
                     <a href="/product/edit/{{this.id}}" class="edit-delete-button">Edit</a>
-                    <a href="/product/edit/{{this.id}}?method=DELETE" class="edit-delete-button">Delete</a>
+                    <a href="/product/delete/{{this.id}}?method=DELETE" class="edit-delete-button">Delete</a>
                 </td>
             </tr>
             {{else}}

@@ -6,11 +6,11 @@ const isClerkAuthenticated = require("../middleware/clerkAuth");
 
 router.get("/add",isClerkAuthenticated,(req,res)=>
 {
-    res.render("Product/taskAddForm");
+    res.render("Product/productAdd");
 });
 
 
-router.post("/add",(req,res)=>
+router.post("/add",isClerkAuthenticated,(req,res)=>
 {
     const newProduct = {
         title : req.body.title,
@@ -24,17 +24,19 @@ router.post("/add",(req,res)=>
     product.save()
     .then((product)=>{
         req.files.productImg.name = `pic_${product._id}${path.parse(req.files.productImg.name).ext}`;
-        req.files.productImg.mv(`public/img/${req.files.profilePic.name}`)
+        console.log(req.files.productImg.name);
+        req.files.productImg.mv(`public/img/${req.files.productImg.name}`)
         .then(()=>{
 
             productModel.updateOne({_id:product._id},{
                 productImg: req.files.productImg.name
             })
             .then(()=>{
-                res.redirect(`/list`);
+                res.redirect(`/product/list`);
             })
             
         })
+        .catch(err=>console.log(`Fail set image`));
     })
     .catch(err=>console.log(`Error during inserting :${err}`));
    
@@ -55,7 +57,8 @@ router.get("/list",isClerkAuthenticated,(req,res)=>
                 description : product.description,
                 price : product.price,
                 quantity : product.quantity,
-                bestSeller : product.bestSeller
+                bestSeller : product.bestSeller,
+                productImg : product.productImg
             }
         }); 
 
@@ -104,10 +107,10 @@ router.put("/update/:id",isClerkAuthenticated,(req,res)=>{
         bestSeller : req.body.bestSeller
     }
 
-    taskModel.updateOne({_id:req.params.id},product)
+    productModel.updateOne({_id:req.params.id},product)
     .then((product)=>{
         req.files.productImg.name = `pic_${product._id}${path.parse(req.files.productImg.name).ext}`;
-        req.files.productImg.mv(`public/img/${req.files.profilePic.name}`)
+        req.files.productImg.mv(`public/img/${req.files.productImg.name}`)
         .then(()=>{
 
             productModel.updateOne({_id:product._id},{
@@ -124,7 +127,7 @@ router.put("/update/:id",isClerkAuthenticated,(req,res)=>{
 });
 
 router.delete("/delete/:id",isClerkAuthenticated,(req,res)=>{
-    taskModel.deleteOne({_id:req.params.id})
+    productModel.deleteOne({_id:req.params.id})
     .then(()=>{
         res.redirect("/product/list");
     })
