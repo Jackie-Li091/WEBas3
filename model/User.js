@@ -18,6 +18,10 @@ const userSchema = new Schema({
     dataCreated:{
         type:Date,
         default:Date.now()
+    },
+    type:{
+        type:String,
+        default:"User"
     }
   
 });

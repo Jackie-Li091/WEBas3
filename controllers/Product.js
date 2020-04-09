@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const productModel = require("../model/products");
+const path = require("path");
+const isClerkAuthenticated = require("../middleware/clerkAuth");
 
-router.get("/add",(req,res)=>
+router.get("/add",isClerkAuthenticated,(req,res)=>
 {
     res.render("Product/taskAddForm");
 });
@@ -39,7 +41,7 @@ router.post("/add",(req,res)=>
 });
 
 //!---
-router.get("/list",(req,res)=>
+router.get("/list",isClerkAuthenticated,(req,res)=>
 {
     
     productModel.find() 
@@ -71,7 +73,7 @@ router.get("/list",(req,res)=>
 
 
 
-router.get("/edit/:id",(req,res)=>{
+router.get("/edit/:id",isClerkAuthenticated,(req,res)=>{
     productModel.findById(req.params.id)
     .then((product)=>{
         const {_id,title,cate,description,price,quantity,bestSeller,productImg} = product;
@@ -91,7 +93,7 @@ router.get("/edit/:id",(req,res)=>{
     
 })
 
-router.put("/update/:id",(req,res)=>{
+router.put("/update/:id",isClerkAuthenticated,(req,res)=>{
 
     const product = {
         title : req.body.title,
@@ -121,7 +123,7 @@ router.put("/update/:id",(req,res)=>{
     .catch(err=>console.log(`Fail to update ${err}`));
 });
 
-router.delete("/delete/:id",(req,res)=>{
+router.delete("/delete/:id",isClerkAuthenticated,(req,res)=>{
     taskModel.deleteOne({_id:req.params.id})
     .then(()=>{
         res.redirect("/product/list");

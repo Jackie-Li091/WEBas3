@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 //const model = require("../model/product");
 const userModel = require("../model/User");
-const path = require("path");
+//const path = require("path");
+const isAuthenticated = require("../middleware/normalAuth");
+const dashboardLoader = require("../middleware/authorization");
 
 
 router.get("/cusRegistration",(req,res)=>{
@@ -129,5 +131,13 @@ router.post("/login",(req,res)=>{
         res.redirect("../");
     }
 })
+
+router.get("/profile",isAuthenticated,dashboardLoader);
+
+router.get("/logout",(req,res)=>{
+    req.session.destroy();
+    res.redirect("/user/login");
+})
+
 
 module.exports = router;

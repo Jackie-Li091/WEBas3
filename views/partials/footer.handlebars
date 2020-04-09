@@ -5,8 +5,12 @@
             <ul class="footer-text">
                 <li class="footer-li"><a class="footer-text" href="/">Home</a></li>
                 <li class="footer-li"><a class="footer-text" href="/products">Product Menu</a></li>
-                <li class="footer-li"><a class="footer-text" href="/user/cusRegistration">Sign up</a></li>
-                <li class="footer-li"><a class="footer-text" href="/user/login">Sign In</a></li>
+            {{#if user}}
+                <li><a class="footer-li" href="/user/logout">Logout</a></li>
+            {{else}}
+                <li><a class="footer-li" href="/user/cusRegistration">Sign up</a></li>
+                <li><a class="footer-li" href="/user/login">Sign In</a></li>
+            {{/if}}
             </ul>
         </div>
 
