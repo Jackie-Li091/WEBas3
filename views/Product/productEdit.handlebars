@@ -1,0 +1,41 @@
+<div class="form-page">
+    <div>
+        <form action="/product/update/{{_id}}?method=PUT" method="POST" enctype="multipart/form-data">
+            <p id="form-reg">Update product information</p id="form-reg">
+            <div>
+                <label class="form-label" for="a_title">Title</label> <br>
+                <input type="text" id="a_title" name="title" class="form-input" value="{{title}}"> <br>
+
+                <label class="form-label" for="a_cate">Category</label>
+                <select name="cate" id="a_cate">
+                    <option value="laptop">Laptop</option>
+                    <option value="laptop-bag">Laptop Bag</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="notebook">Notebook</option>
+
+                </select>
+
+                <label class="form-label" for="a_des">Description</label> <br>
+                <textarea id="a_des" name="description" >{{description}}</textarea> <br>
+
+                <label class="form-label" for="a_price">Price</label> <br>
+                <input type="number" id="a_price" name="price" class="form-input" value="{{price}}"> <br>
+                
+
+                <label class="form-label" for="a_quan">Quantity</label> <br>
+                <input type="number" id="a_quan" name="quantity" class="form-input" value="{{quantity}}"> <br>
+                
+                <label class="form-label" for="a_best">BestSeller?</label>
+                <select name="bestSeller" id="a_best">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+
+                <label class="form-label" for="a_upload">Upload Picture</label>
+                <input type="file" name="productImg" id="a_upload"> <br>
+
+                <button type="submit" class="form-sub">Update Product</button>
+            </div>
+        </form>
+    </div>
+</div>

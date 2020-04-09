@@ -4,8 +4,13 @@
         <ul>
             <li><a class="nav-ul-a" href="/">Home</a></li>
             <li><a class="nav-ul-a" href="/products">Product Menu</a></li>
-            <li><a class="nav-ul-a" href="/user/cusRegistration">Sign up</a></li>
-            <li><a class="nav-ul-a" href="/user/login">Sign In</a></li>
+            <li><a class="nav-ul-a" href="/product/productSearch">Search by Category</a></li>
+            {{#if user}}
+                <li><a class="nav-ul-a" href="/user/logout">Logout</a></li>
+            {{else}}
+                <li><a class="nav-ul-a" href="/user/cusRegistration">Sign up</a></li>
+                <li><a class="nav-ul-a" href="/user/login">Sign In</a></li>
+            {{/if}}
         </ul>
     </nav>
     <p id="header-info">New deals everyday</p>

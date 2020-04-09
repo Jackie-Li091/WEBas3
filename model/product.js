@@ -49,7 +49,7 @@ const product = {
         this.fakeDb.push({
             title : `Midori MD Notebook - A5`,
             price : `15.33`,
-            cate : `Notebook`,
+            cate : `notebook`,
             img : `img/A5-notebook.jpg`,
             best : false
         });

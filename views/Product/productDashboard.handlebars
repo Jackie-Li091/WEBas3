@@ -1,0 +1,62 @@
+<div>
+
+    <form method="POST" action="/task/search">
+        <label class="form-label" for="a_cate">Category</label>
+        <select name="cate" id="a_cate">
+            <option value="laptop">Laptop</option>
+            <option value="laptop-bag">Laptop Bag</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="notebook">Notebook</option>
+
+        </select>
+
+        <input type="submit" value="Search">
+    </form> <br><br>
+
+    <table border="1" style="text-align: center;">
+        <thead>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>BestSeller</th>
+            <th>Product Img</th>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>
+                    <span>{{this.cate}}</span>
+                </td>
+                <td>
+                    <a href="/task/profile/{{this.id}}" class="task-title">{{this.title}}</a>
+                </td>
+                <td>
+                    <span>{{this.description}}</span>
+                </td>
+                <td>
+                    <span>{{this.price}}</span>
+                </td>
+                <td>
+                    <span>{{this.quantity}}</span>
+                </td>
+                <td>
+                    <span>{{this.bestSeller}}</span>
+                </td>
+                <td>
+                    <img src="/img/{{this.pruductImg}}">
+                </td>
+                <td>
+                    <a href="/product/edit/{{this.id}}" class="edit-delete-button">Edit</a>
+                    <a href="/product/edit/{{this.id}}?method=DELETE" class="edit-delete-button">Delete</a>
+                </td>
+            </tr>
+            {{else}}
+            <td colspan="7">
+                No Product Yet!
+            </td>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
