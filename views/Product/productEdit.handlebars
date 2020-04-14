@@ -8,10 +8,10 @@
 
                 <label class="form-label" for="a_cate">Category</label>
                 <select name="cate" id="a_cate">
-                    <option value="laptop">Laptop</option>
-                    <option value="laptop-bag">Laptop Bag</option>
-                    <option value="chocolate">Chocolate</option>
-                    <option value="notebook">Notebook</option>
+                    <option value="laptop" {{#if_eq cate "laptop"}} selected {{/if_eq}}>Laptop</option>
+                    <option value="laptop-bag" {{#if_eq cate "laptop-bag"}} selected {{/if_eq}}>Laptop Bag</option>
+                    <option value="chocolate" {{#if_eq cate "chocolate"}} selected {{/if_eq}}>Chocolate</option>
+                    <option value="notebook" {{#if_eq cate "notebook"}} selected {{/if_eq}}>Notebook</option>
 
                 </select>
 
@@ -27,8 +27,8 @@
                 
                 <label class="form-label" for="a_best">BestSeller?</label>
                 <select name="bestSeller" id="a_best">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                    <option value="true" {{#if_eq bestSeller true}} selected {{/if_eq}}>Yes</option>
+                    <option value="false" {{#if_eq bestSeller false}} selected {{/if_eq}}>No</option>
                 </select>
 
                 <label class="form-label" for="a_upload">Upload Picture</label>

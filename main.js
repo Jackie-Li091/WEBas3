@@ -10,8 +10,30 @@ const fileUpload = require('express-fileupload');
 
 const app = express();
 
-app.engine('handlebars', exphbs());
+var hbs = exphbs.create({
+    helpers: {
+        if_eq: function(v1,v2,options){
+            console.log(v1,v2);
+            if(v1 == v2)
+                return options.fn(this);
+            else
+                return options.inverse(this);
+        }
+    }
+});
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+/*
+app.engine(".hbs",exphbs({extname: ".hbs"}));
+app.set("view engine", ".hbs");
+var hbs = exphbs.create({});
+
+hbs.handlebars.registerHelper("if_eq",function(value){
+
+});
+*/
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
