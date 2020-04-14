@@ -13,7 +13,7 @@ const app = express();
 var hbs = exphbs.create({
     helpers: {
         if_eq: function(v1,v2,options){
-            console.log(v1,v2);
+            //console.log(v1,v2);
             if(v1 == v2)
                 return options.fn(this);
             else

@@ -81,4 +81,23 @@ router.get("/products/:cate",(req,res)=>{
     .catch(err=>console.log(`Error when get the cate data at productPage`));
 })
 
+router.get("/products/item/:id",(req,res)=>{
+
+    productModel.findById(req.params.id)
+    .then((product)=>{
+        const {_id,cate,title,description,price,quantity,bestSeller,productImg} = product;
+        res.render("General/item",{
+            _id,
+            cate,
+            title,
+            description,
+            price,
+            quantity,
+            bestSeller,
+            productImg
+        })
+    })
+    .catch(err=>console.log(`Err found the item`));
+})
+
 module.exports = router;

@@ -1,0 +1,41 @@
+<div>
+    <p>{{cate}} > {{title}}</p>
+</div>
+
+
+<div>
+    <div class="pro-img">
+        <img src="/img/{{this.productImg}}" alt="{{this.title}}" width="60%" height="60%">
+    </div>
+
+    <form action="#" method="POST">
+        <div class="pro-detail">
+            <div class="pro-up">
+                <p class="pro-title" name="title">{{title}}</p>
+
+                {{#if_eq bestSeller true}}
+                <p class="pro-best">Amazon charts</p>
+                {{/if_eq}}
+            </div>
+
+            <div class="pro-down">
+                <p class="pro-price" name="price">Price: <p class="pro-price-2">CDN$: {{price}}</p>
+                </p>
+                <div class="pro-des">{{description}}</div>
+                <div class="pro-quantity">
+                    {{#if quantity}}
+                    In Stock: {{quantity}}
+                    {{else}}
+                    Currently Out of Stock
+                    {{/if}}
+                </div>
+
+                <button type="submit" class="form-sub">Add to Cart</button>
+
+            </div>
+
+
+        </div>
+    </form>
+
+</div>

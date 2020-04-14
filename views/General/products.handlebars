@@ -19,11 +19,11 @@
                     <div class="not-best">#</div>
                     {{/if}}
                     <div class="product-img">
-                        <img src="/img/{{this.productImg}}" alt="{{this.title}}" width="60%" height="60%">
+                        <a href="/products/item/{{this.id}}"><img src="/img/{{this.productImg}}" alt="{{this.title}}" width="60%" height="60%"></a>
                     </div>
                     
                     <p class="product-titles">
-                        {{this.title}}
+                        <a href="/products/item/{{this.id}}">{{this.title}}</a>
                     </p>
                     <p class="product-price">
                         CDN: $ {{this.price}}
