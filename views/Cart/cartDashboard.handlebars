@@ -1,0 +1,11 @@
+<div id="dashboard">
+    <div class="thankstitle">
+        <p>Thank you for shopping in our company!٩( 'ω' )و</p>
+    </div>
+    <div class="thanksnote">
+        {{#each data}}
+            <p>Today, you bought {{quantity}} of {{title}}</p>
+        {{/each}}
+        Total cost is ${{totalPrice}}.
+    </div>
+</div>

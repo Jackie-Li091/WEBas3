@@ -18,6 +18,12 @@ var hbs = exphbs.create({
                 return options.fn(this);
             else
                 return options.inverse(this);
+        },
+        if_higher: function(v1,v2,options){
+            if(v1 > v2)
+                return options.fn(this);
+            else
+                return options.inverse(this);
         }
     }
 });
@@ -41,6 +47,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const generalRoutes = require("./controllers/General.js");
 const productRoutes = require("./controllers/Product.js");
 const userRoutes = require("./controllers/User.js");
+const cartRoutes = require("./controllers/Cart");
 
 app.use((req,res,next)=>{
     if(req.query.method=="PUT"){
@@ -71,6 +78,7 @@ app.use((req,res,next)=>{
 app.use("/",generalRoutes);
 app.use("/user",userRoutes);
 app.use("/product",productRoutes);
+app.use("/cart",cartRoutes);
 app.use("/",(req,res)=>{
     res.render("General/404");
 });

@@ -336,6 +336,16 @@ form p {
     font-weight: bolder;
 }
 
+.product-menu-title-a {
+    color: gray;
+    text-decoration: none;
+}
+
+.product-link {
+    color: black;
+    text-decoration: none;
+}
+
 .product-coontain {
     flex: 5;
     flex-wrap: wrap;
@@ -367,7 +377,7 @@ form p {
 }
 
 .product-img {
-    margin: 25px;
+    margin: 15px 25px 0 25px;
 }
 
 .product-titles {

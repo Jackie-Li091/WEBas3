@@ -8,7 +8,7 @@
         <img src="/img/{{this.productImg}}" alt="{{this.title}}" width="60%" height="60%">
     </div>
 
-    <form action="#" method="POST">
+    <form action="/cart/add/{{_id}}" method="POST">
         <div class="pro-detail">
             <div class="pro-up">
                 <p class="pro-title" name="title">{{title}}</p>
@@ -23,12 +23,21 @@
                 </p>
                 <div class="pro-des">{{description}}</div>
                 <div class="pro-quantity">
-                    {{#if quantity}}
+                    {{#if_higher quantity 0}}
                     In Stock: {{quantity}}
                     {{else}}
                     Currently Out of Stock
-                    {{/if}}
+                    {{/if_higher}}
                 </div>
+
+                <label class="pro-quan" for="p_quan">Quantity</label>
+                <select name="addQuantity" id="p_quan">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+
+                </select>
 
                 <button type="submit" class="form-sub">Add to Cart</button>
 
