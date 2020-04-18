@@ -15,18 +15,18 @@ router.post("/add/:id",isAuthenticated,(req,res)=>{
             existQuantity : product.quantity,
             productImg : product.productImg
         };
-/*
-        const cartt = cartModel.findOne({userId:req.session.userInfo._id,productId:cart.productId})
-        console.log(cartt);
-            if(cartt != "undefined"){
-                const update ={quantity : req.body.addQuantity + cart.quantity};
-                cartModel.updateOne({_id:cart._id},update)
+
+        cartModel.findOne({userId:req.session.userInfo._id,productId:cart.productId})
+        .then((cartt)=>{
+            if(cartt){
+                const update ={quantity : Number(req.body.addQuantity) + Number(cartt.quantity)};
+                //console.log(typeof(update.quantity));
+                cartModel.updateOne({_id:cartt._id},update)
                 .then(()=>{
                     res.redirect("/cart/list");
                 })
                 .catch(err=>{console.log(`Err during the adding to cartt ${err}`)});
-            }else{*/
-
+            }else{
                 const addCart = {
                     userId : req.session.userInfo._id,
                     productId : cart.productId,
@@ -42,8 +42,9 @@ router.post("/add/:id",isAuthenticated,(req,res)=>{
                     res.redirect("/cart/list");
                 })
                 .catch(err=>{console.log(`Err during the adding to cart ${err}`)});
-            
-
+            }
+        })
+        .catch(err=>{console.log(`Err found inforamation ${err}`)});      
 
     })
     .catch(err=>{console.log(`Err to found the product ${err}`);});

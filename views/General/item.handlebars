@@ -1,14 +1,14 @@
 <div>
-    <p>{{cate}} > {{title}}</p>
+    <p class="pro-titles">{{cate}} > {{title}}</p>
 </div>
 
 
-<div>
+<div class="pro-contain">
     <div class="pro-img">
-        <img src="/img/{{this.productImg}}" alt="{{this.title}}" width="60%" height="60%">
+        <img src="/img/{{this.productImg}}" alt="{{this.title}}" width="50%" height="60%">
     </div>
 
-    <form action="/cart/add/{{_id}}" method="POST">
+    <form class="pro-form" action="/cart/add/{{_id}}" method="POST">
         <div class="pro-detail">
             <div class="pro-up">
                 <p class="pro-title" name="title">{{title}}</p>
@@ -19,7 +19,7 @@
             </div>
 
             <div class="pro-down">
-                <p class="pro-price" name="price">Price: <p class="pro-price-2">CDN$: {{price}}</p>
+                <p class="pro-price" name="price">Price: <span class="pro-price-2">CDN$: {{price}}</span>
                 </p>
                 <div class="pro-des">{{description}}</div>
                 <div class="pro-quantity">

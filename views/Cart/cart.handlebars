@@ -1,43 +1,51 @@
 <p class="cart-title">Shopping Cart</p>
 
-<div class="cart-list">
-    {{#each data}}
-        <div class="cart-item">
-            <div class="cart-img">
-                <img src="/img/{{this.productImg}}" alt="{{this.title}}" width="60%" height="60%">
-            </div>           
-        </div>
-
-        <div class="cart-info">
-            <div class="cart-item-detail">
-                <p class="cart-item-title">{{title}}</p>
-                <p class="cart-item-price">CDN$: {{price}}</p>
-                <div class="cart-item-quantity">
-                    {{#if_higher existQuantity 0}}
-                    <p class="cart-item-hitsIn">In Stock</p> 
-                    {{else}}
-                    <p class="cart-itemhitsNo">Currently Out of Stock</p> 
-                    {{/if_higher}}
+<div class="cart-page">
+    <div class="cart-list">
+        {{#each data}}
+        <div class="cart-lists">
+            <div class="cart-item">
+                <div class="cart-img">
+                    <img src="/img/{{this.productImg}}" alt="{{this.title}}" width="150px" height="150px">
                 </div>
-                <p class="cart-item-sum">quantity: {{quantity}}</p>
+            </div>
+
+            <div class="cart-info">
+                <div class="cart-item-detail">
+                    <p class="cart-item-title">{{title}}</p>
+                    <p class="cart-item-price">CDN$: {{price}}</p>
+                    <div class="cart-item-quantity">
+                        {{#if_higher existQuantity 0}}
+                        <p class="cart-item-hitsIn">In Stock</p>
+                        {{else}}
+                        <p class="cart-item-price">Currently Out of Stock</p>
+                        {{/if_higher}}
+                    </div>
+                    <p class="cart-item-title">Quantity: {{quantity}}</p>
+                </div>
+
             </div>
 
             <div class="cart-order-sum">
-                <p class="cart-order-title">Order Summary</p>
-                <p class="cart-order-info"><span class="cart-order-num">items({{quantity}}):</span><span class="cart-order-price">CDN$ {{itemTotal}}</span></p>
+                <p class="cart-item-title">Order Summary</p>
+                <p class="cart-order-info"><span class="cart-order-num">items({{quantity}}):</span><span
+                        class="cart-order-price">CDN$ {{itemTotal}}</span></p>
             </div>
         </div>
-    {{/each}}
 
-        <div class="order-form-contain">
 
-                <div class="order-form-button">
-                    <p>1 {{id}}</p>
-                    <a class="order-form-button" href="/cart/confirm/{{id}}">Place your order</a>
-                </div>
-                <div class="order-form-info">
-                    <p class="order-form-detail">Order Total:     CDN$ {{totalPrice}}</p>
-                </div>
+        {{/each}}
 
-        </div>
+
+
+    </div>
+
+    <div class="order-form-contain">
+
+
+            <a class="order-form-button" href="/cart/confirm/">Place your order</a>
+
+            <p class="order-form-detail">Order Total:  CDN$ {{totalPrice}}</p>
+
+    </div>
 </div>
