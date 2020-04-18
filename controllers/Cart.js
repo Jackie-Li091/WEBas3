@@ -72,6 +72,7 @@ router.get("/list",isAuthenticated,(req,res)=>{
         filtered.forEach((item)=>{
             totalPrice = totalPrice + item.itemTotal;
         });
+        totalPrice = totalPrice.toFixed(2);
         res.render("Cart/cart",{
             title : "Shopping Cart",
             data : filtered,
