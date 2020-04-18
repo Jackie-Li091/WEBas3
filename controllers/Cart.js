@@ -94,16 +94,25 @@ router.get("/confirm",isAuthenticated,(req,res)=>{
         });
 
         let totalPrice = 0;
+        let quan = 0;
+        let titleName = [];
         filtered.forEach((item)=>{
             totalPrice = totalPrice + item.itemTotal;
+            quan = quan + item.quantity;
+            titleName.push(item.title);
         });
 
+        totalPrice = totalPrice.toFixed(2);
+        //console.log(quan);
+        //console.log(titleName);
+        //console.log(totalPrice);
         cartModel.deleteMany({userId:req.session.userInfo._id})
         .then(()=>{
             userModel.findById(req.session.userInfo._id)
             .then((user)=>{
                 const email = user.email;
                 const username = user.username;
+
             //    console.log(email);
                 const sgMail = require('@sendgrid/mail');
                 sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
@@ -115,7 +124,7 @@ router.get("/confirm",isAuthenticated,(req,res)=>{
                 `
                 Hi, ${username} <br>
                 Thank you for shopping in our company<br>
-                Today, tou bought ${filtered.quantity} of ${filtered.title} <br>
+                Today, you bought ${quan} of ${titleName} <br>
                 Total cost is ${totalPrice}.
                 `,
                 };
