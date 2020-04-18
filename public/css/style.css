@@ -31,6 +31,16 @@ header {
 
 }
 
+.nav-ul-cart {
+    color: white;
+    text-decoration: none;
+}
+
+.add-lala {
+    color: darkblue;
+    text-decoration: none;
+    font: 1.2rem Arial;
+}
 header ul {
     width: 700px;
     margin: 0;

@@ -28,6 +28,10 @@ const productSchema = new Schema({
     productImg: {
         type:String
     },
+    isCate: {
+        type:String,
+        default:"false"
+    },
     dataCreated:{
         type:Date,
         default:Date.now()

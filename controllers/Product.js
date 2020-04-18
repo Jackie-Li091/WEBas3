@@ -24,7 +24,7 @@ router.post("/add",isClerkAuthenticated,(req,res)=>
     product.save()
     .then((product)=>{
         req.files.productImg.name = `pic_${product._id}${path.parse(req.files.productImg.name).ext}`;
-        console.log(req.files.productImg.name);
+        //console.log(req.files.productImg.name);
         req.files.productImg.mv(`public/img/${req.files.productImg.name}`)
         .then(()=>{
 

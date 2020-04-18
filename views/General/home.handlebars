@@ -11,10 +11,10 @@
         {{#each data}}
         <div class="cate-box">
             <p class="cate-title">
-                {{this.cate}}
+                {{this.title}}
             </p>
 
-            <img src="{{this.productImg}}" alt="{{this.title}}" width="50%" height="50%"> <br>
+            <a href="/products/{{this.title}}"><img src="/img/{{this.productImg}}" alt="{{this.title}}" width="60%" height="60%"></a> <br>
             <!--
             <p><a class="cate-ex" href="/products">Explore now</a></p>
             -->
@@ -28,7 +28,7 @@
         <div class="best-contain">
             {{#each data1}}
             <div class="best-box">
-                <img src="/img/{{this.productImg}}" alt="{{this.title}}" width="80%" height="80%">
+                <a href="/products/item/{{this.id}}"><img src="/img/{{this.productImg}}" alt="{{this.title}}" width="50%" height="60%"></a>
             </div>
             {{/each}}
         </div>

@@ -6,27 +6,37 @@ const productModel = require("../model/products");
 router.get("/",(req,res)=>{
     productModel.find({bestSeller:true}) 
     .then((products)=>{
-    
-        const filtered = products.map(product=>{
-            return{
-                id : product._id,
-                cate : product.cate,
-                title : product.title,
-                description : product.description,
-                price : product.price,
-                quantity : product.quantity,
-                bestSeller : product.bestSeller,
-                productImg : product.productImg
-            }
-        }); 
-
-        res.render("General/home",{
-            title : "Home",
-            data : model.getCategory(),
-            data1 : filtered
-        });
+        productModel.find({isCate:"true"})
+        .then((cates)=>{
+            const filtered = products.map(product=>{
+                return{
+                    id : product._id,
+                    cate : product.cate,
+                    title : product.title,
+                    description : product.description,
+                    price : product.price,
+                    quantity : product.quantity,
+                    bestSeller : product.bestSeller,
+                    productImg : product.productImg
+                }
+            }); 
+            
+            const filteredCate = cates.map(cate=>{
+                return{
+                    id : cate._id,
+                    title : cate.cate,
+                    productImg : cate.productImg
+                }
+            })
+            res.render("General/home",{
+                title : "Home",
+                data : filteredCate,
+                data1 : filtered
+            });
+        })
+        .catch(err=>console.log(`Err the 2nd foud ${err}`));
     })
-    .catch(err=>console.log(`Error when get the data at homepage`));
+    .catch(err=>console.log(`Error when get the data at homepage ${err}`));
 
 });
 
