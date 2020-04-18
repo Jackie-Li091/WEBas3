@@ -110,7 +110,7 @@ router.get("/confirm",isAuthenticated,(req,res)=>{
                 const msg = {
                 to: `${email}`,
                 from: `jackienleee@gmail.com`,
-                subject: 'Welcome to our family',
+                subject: 'Thank you for shopping in here',
                 html: 
                 `
                 Hi, ${username} <br>
